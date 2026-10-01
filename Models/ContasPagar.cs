@@ -11,7 +11,6 @@
         public bool Status {  get; set; }
         public string Categoria { get; set; }
         public string FormaPagamento { get; set; }
-
-        public string Observacao { get; set; }
+        public string? Observacao { get; set; }
     }
 }

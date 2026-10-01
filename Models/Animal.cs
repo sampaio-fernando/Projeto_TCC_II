@@ -6,6 +6,6 @@
         public string Identificacao { get; set; }
         public DateOnly DataNascimento { get; set; }
         public double Peso { get; set; }
-        public string status { get; set; }
+        public string Status { get; set; }
     }
 }
