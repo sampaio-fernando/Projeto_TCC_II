@@ -1,16 +1,33 @@
-﻿using System.Globalization;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 
 namespace AgroLeite.Models
 {
+    [Table("Usuario")]
     public class Usuario
     {
+        [Column("id_usuario")]
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Genero { get; set; }
+
+        [Column("nome")]
+        public required string Nome { get; set; }
+
+        [Column("genero")]
+        public required string Genero { get; set; }
+
+        [Column("dt_nascimento")]
         public DateOnly DataNascimento { get; set; }
-        public string Celular {  get; set; }
-        public string Email { get; set; }
-        public string Cargo { get; set; }
-        public string Senha { get; set; }
+
+        [Column("celular")]
+        public required string Celular {  get; set; }
+
+        [Column("email")]
+        public required string Email { get; set; }
+
+        [Column("cargo")]
+        public required string Cargo { get; set; }
+
+        [Column("senha")]
+        public required string Senha { get; set; }
     }
 }
