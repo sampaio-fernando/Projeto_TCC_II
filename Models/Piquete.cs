@@ -1,24 +1,23 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AgroLeite.Models
+namespace AgroLeite.Models;
+
+[Table("Piquete")]
+public class Piquete
 {
-    [Table("Piquete")]
-    public class Piquete
-    {
-        [Column("id_piquete")]
-        public int Id { get; set; }
+    [Column("id_piquete")]
+    public int PiqueteId { get; set; }
 
-        [Column("descricao")]
-        public required string Descricao { get; set; }
+    [Column("descricao")]
+    public required string Descricao { get; set; }
 
-        [Column("tamanho")]
-        public double Tamanho { get; set; }
+    [Column("tamanho")]
+    public double Tamanho { get; set; }
 
-        [Column("pastagem")]
-        public string? TipoPastagem { get; set; }
+    [Column("pastagem")]
+    public string? TipoPastagem { get; set; }
 
-        [Column("qtd_animais")]
-        public string? QtdAnimais { get; set; }
+    [Column("qtd_animais")]
+    public string? QtdAnimais { get; set; }
 
-    }
 }
