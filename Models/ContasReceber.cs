@@ -5,7 +5,7 @@ namespace AgroLeite.Models;
 [Table("ContasReceber")]
 public class ContasReceber
 {
-    [Column("id_contas_receber")]
+    [Column("contasReceberId")]
     public int ContasReceberId { get; set; }
 
     [Column("valor")]
@@ -14,9 +14,12 @@ public class ContasReceber
     [Column("status")]
     public bool Status { get; set; }
 
-    [Column("dt_recebimento")]
+    [Column("dtRecebimento")]
     public DateOnly DataRecebimento { get; set; }
 
     [Column("parcela")]
     public string? Parcela {  get; set; }
+
+    public int VendaAnimalId { get; set; }
+    public VendaAnimal? VendaAnimal { get; set; }
 }

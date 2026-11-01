@@ -1,11 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgroLeite.Models;
 
 [Table("Propriedade")]
 public class Propriedade
 {
-    [Column("id_propriedade")]
+    public Propriedade()
+    {
+        Animais = new Collection<Animal>();
+        Piquetes = new Collection<Piquete>();
+    }
+
+    [Column("propriedadeId")]
     public int PropriedadeId { get; set; }
 
     [Column("descricao")]
@@ -17,7 +24,10 @@ public class Propriedade
     [Column("endereco")]
     public required string Endereco { get; set; }
 
-    [Column("qtd_animais")]
+    [Column("qtdAnimais")]
     public int QtdAnimais { get; set; }
+
+    public ICollection<Animal>? Animais { get; set; }
+    public ICollection<Piquete>? Piquetes { get; set; }
 
 }

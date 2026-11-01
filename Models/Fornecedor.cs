@@ -1,14 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgroLeite.Models;
 
 [Table("Fornecedor")]
 public class Fornecedor
 {
-    [Column("id_fornecedor")]
+    public Fornecedor()
+    {
+        VendasAnimal = new Collection<VendaAnimal>();
+        VendasProducao = new Collection<VendaProducao>();
+        ContasPagar = new Collection<ContasPagar>();
+    }
+
+    [Column("fornecedorId")]
     public int FornecedorId { get; set; }
 
-    [Column("razao_social")]
+    [Column("razaoSocial")]
     public required string RazaoSocial { get; set; }
 
     [Column("fantasia")]
@@ -17,7 +25,7 @@ public class Fornecedor
     [Column("personalidade")]
     public required string Personalidade { get; set; }
 
-    [Column("cnpj_cpf")]
+    [Column("cnpjCpf")]
     public required string CnpjCpf { get; set; }
 
     [Column("celular")]
@@ -28,4 +36,11 @@ public class Fornecedor
 
     [Column("telefone")]
     public string? Telefone { get; set; }
+
+    public int EnderecoId { get; set; }
+    public Endereco Endereco { get; set; }
+
+    public ICollection<VendaAnimal>? VendasAnimal { get; set; }
+    public ICollection<VendaProducao>? VendasProducao { get; set; }
+    public ICollection<ContasPagar>? ContasPagar { get; set; }
 }

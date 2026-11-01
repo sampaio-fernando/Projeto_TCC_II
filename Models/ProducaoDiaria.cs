@@ -5,7 +5,7 @@ namespace AgroLeite.Models;
 [Table("ProducaoDiaria")]
 public class ProducaoDiaria
 {
-    [Column("id_producao_dia")]
+    [Column("prodDiariaId")]
     public int ProducaoDiariaId { get; set; }
 
     [Column("descricao")]
@@ -14,15 +14,18 @@ public class ProducaoDiaria
     [Column("media")]
     public double MediaAnimal { get; set; }
 
-    [Column("dt_hr_inicio")]
+    [Column("dtHrInicio")]
     public DateTime DataHoraInicio { get; set; }
 
-    [Column("qtd_vacas")]
+    [Column("qtdVacas")]
     public int QtdVacas { get; set; }
 
-    [Column("qtd_litros")]
+    [Column("qtdLitros")]
     public double QtdLitros { get; set; }
 
     [Column("observacao")]
     public string? Observacao { get; set; }
+
+    public int ProducaoMensalId { get; set; }
+    public ProducaoMensal? ProducaoMensal { get; set; }
 }

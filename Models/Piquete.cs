@@ -5,7 +5,7 @@ namespace AgroLeite.Models;
 [Table("Piquete")]
 public class Piquete
 {
-    [Column("id_piquete")]
+    [Column("piqueteId")]
     public int PiqueteId { get; set; }
 
     [Column("descricao")]
@@ -17,7 +17,9 @@ public class Piquete
     [Column("pastagem")]
     public string? TipoPastagem { get; set; }
 
-    [Column("qtd_animais")]
+    [Column("qtdAnimais")]
     public string? QtdAnimais { get; set; }
 
+    public int PropriedadeId { get; set; }
+    public Propriedade? Propriedade { get; set; }
 }

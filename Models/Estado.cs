@@ -1,11 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgroLeite.Models;
 
 [Table("Estado")]
 public class Estado
 {
-    [Column("id_estado")]
+    public Estado ()
+    {
+        Cidades = new Collection<Cidade>();
+    }    
+
+    [Column("estadoId")]
     public int EstadoId { get; set; }
 
     [Column("nome")]
@@ -13,4 +19,6 @@ public class Estado
 
     [Column("uf")]
     public required string Uf { get; set; }
+
+    public ICollection<Cidade>? Cidades { get; set; }
 }

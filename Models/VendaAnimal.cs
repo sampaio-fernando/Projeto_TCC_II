@@ -1,34 +1,48 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgroLeite.Models;
 
 [Table("VendaAnimal")]
 public class VendaAnimal
 {
-    [Column("id_venda_animal")]
+    public VendaAnimal()
+    {
+        Animais = new Collection<Animal>();
+        ContasReceb = new Collection<ContasReceber>();
+    }
+
+    [Column("vendaAnimalId")]
     public int VendaAnimalId { get; set; }
 
     [Column("descricao")]
     public required string Descricao { get; set; }
 
-    [Column("total")]
+    [Column("totalVenda")]
     public double TotalVenda { get; set; }
 
-    [Column("data_venda")]
+    [Column("dataVenda")]
     public DateOnly DataVenda { get; set; }
 
-    [Column("forma_receb")]
+    [Column("formaReceb")]
     public required string FormaRecebimento { get; set; }
 
-    [Column("qtd_parcela")]
+    [Column("qtdParcela")]
     public int QtdParcela { get; set; }
 
-    [Column("dt_recebimento")]
+    [Column("dtRecebimento")]
     public DateOnly DataRecebimento { get; set; }
 
     [Column("desconto")]
     public double ValorDesconto { get; set; }
 
-    [Column("media_peso")]
-    public double MediaPeso { get; set; }   
+    [Column("mediaPeso")]
+    public double MediaPeso { get; set; }
+    
+    public int FornecedorId { get; set; }
+    public Fornecedor Fornecedor { get; set; }
+
+    public ICollection<Animal>? Animais { get; set; }
+    public ICollection<ContasReceber>? ContasReceb { get; set; }
+
 }

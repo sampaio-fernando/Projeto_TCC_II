@@ -5,19 +5,19 @@ namespace AgroLeite.Models;
 [Table("ContasPagar")]
 public class ContasPagar
 {
-    [Column("id_contas_pagar")]
+    [Column("contasPagarId")]
     public int ContasPagarId { get; set; }
 
     [Column("descricao")]
     public required string Descricao { get; set; }
 
-    [Column("qtd_parcela")]
+    [Column("qtdParcela")]
     public int QtdParcela { get; set; }
 
-    [Column("dt_emissao")]
+    [Column("dtEmissao")]
     public DateOnly DataEmissao { get; set; }
 
-    [Column("dt_vencimento")]
+    [Column("dtVencimento")]
     public DateOnly DataVencimento { get; set; }
 
     [Column("valor")]
@@ -29,9 +29,12 @@ public class ContasPagar
     [Column("categoria")]
     public required string Categoria { get; set; }
 
-    [Column("forma_pag")]
+    [Column("formaPagam")]
     public string? FormaPagamento { get; set; }
 
     [Column("observacao")]
     public string? Observacao { get; set; }
+
+    public int FornecedorId { get; set; }
+    public Fornecedor? Fornecedor { get; set; }
 }

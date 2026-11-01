@@ -1,11 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgroLeite.Models;
 
 [Table("VendaProducao")]
 public class VendaProducao
 {
-    [Column("id_venda_producao")]
+    public VendaProducao() 
+    {
+        VendasProducao = new Collection<VendaProducao>();
+    }
+
+    [Column("vendaProdId")]
     public int VendaProducaoId { get; set; }
 
     [Column("observacao")]
@@ -17,7 +23,11 @@ public class VendaProducao
     [Column("desconto")]
     public double ValorDesconto { get; set; }
 
-    [Column("valor_total")]
+    [Column("valorTotal")]
     public double ValorTotal { get; set; }
 
+    public int FornecedorId { get; set; }
+    public Fornecedor? Fornecedor { get; set; }
+
+    public ICollection<VendaProducao>? VendasProducao { get; set; }
 }

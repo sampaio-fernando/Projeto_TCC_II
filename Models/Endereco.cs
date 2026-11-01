@@ -1,11 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AgroLeite.Models;
 
 [Table("Endereco")]
 public class Endereco
 {
-    [Column("id_endereco")]
+    public Endereco() 
+    {
+        Fornecedores = new Collection<Fornecedor>();
+    }
+
+    [Column("enderecoId")]
     public int EnderecoId { get; set; }
 
     [Column("cep")]
@@ -20,6 +27,8 @@ public class Endereco
     [Column("numero")]
     public int Numero { get; set; }
 
-    [Column("complemento")]
+    [Column("complemen")]
     public string? Complemento { get; set; }
+
+    public ICollection<Fornecedor>? Fornecedores { get; set; }
 }
