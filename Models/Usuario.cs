@@ -6,7 +6,7 @@ namespace AgroLeite.Models;
 [Table("Usuario")]
 public class Usuario
 {
-    [Column("id_usuario")]
+    [Column("usuarioId")]
     public int UsuarioId { get; set; }
 
     [Column("nome")]
@@ -15,7 +15,7 @@ public class Usuario
     [Column("genero")]
     public required string Genero { get; set; }
 
-    [Column("dt_nascimento")]
+    [Column("dtNascimento")]
     public DateOnly DataNascimento { get; set; }
 
     [Column("celular")]
@@ -26,7 +26,4 @@ public class Usuario
 
     [Column("cargo")]
     public required string Cargo { get; set; }
-
-    [Column("senha")]
-    public required string Senha { get; set; }
 }

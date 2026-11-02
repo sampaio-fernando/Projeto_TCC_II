@@ -1,10 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgroLeite.Models;
 
 [Table("Insumo")]
 public class Insumo
 {
+    public Insumo()
+    {
+        EstoquesInsumo = new Collection<EstoqueInsumo>();
+    }
+
     [Column("insumoId")]
     public int InsumoId { get; set; }
 
@@ -20,4 +26,5 @@ public class Insumo
     public int CategoriaInsumoId { get; set; }
     public CategoriaInsumo? CategoriaInsumo { get; set; }
 
+    public ICollection<EstoqueInsumo>? EstoquesInsumo { get; set; }
 }

@@ -10,6 +10,7 @@ public class Propriedade
     {
         Animais = new Collection<Animal>();
         Piquetes = new Collection<Piquete>();
+        EstoquesInsumo = new Collection<EstoqueInsumo>();
     }
 
     [Column("propriedadeId")]
@@ -29,5 +30,6 @@ public class Propriedade
 
     public ICollection<Animal>? Animais { get; set; }
     public ICollection<Piquete>? Piquetes { get; set; }
+    public ICollection<EstoqueInsumo>? EstoquesInsumo { get; set; }
 
 }

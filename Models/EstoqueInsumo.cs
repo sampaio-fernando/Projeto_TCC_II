@@ -5,24 +5,33 @@ namespace AgroLeite.Models;
 [Table("EstoqueInsumo")]
 public class EstoqueInsumo
 {
-    [Column("id_estoque_insumo")]
+    [Column("estoqueInsumoId")]
     public int EstoqueInsumoId { get; set; }
 
     [Column("valor")]
     public double ValorUnit { get; set; }
 
-    [Column("dt_validade")]
+    [Column("dtValidade")]
     public DateOnly DataValidade { get; set; }
 
-    [Column("quantidade")]
+    [Column("qtd")]
     public double Quantidade { get; set; }
 
-    [Column("dt_vencimento")]
+    [Column("dtVencimento")]
     public DateOnly DataVencimento { get; set; }
 
-    [Column("qtd_parcela")]
+    [Column("qtdParcela")]
     public int QtdParcela { get; set; }
 
-    [Column("forma_pag")]
+    [Column("formaPag")]
     public required string FormaPagamento { get; set; }
+
+    public int InsumoId { get; set; }
+    public Insumo? Insumo { get; set; }
+
+    public int FornecedorId { get; set; }
+    public Fornecedor? Fornecedor { get; set; }
+
+    public int PropriedadeId { get; set; }
+    public Propriedade? Propriedade { get; set; }
 }

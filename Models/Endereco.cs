@@ -30,5 +30,8 @@ public class Endereco
     [Column("complemen")]
     public string? Complemento { get; set; }
 
+    public int CidadeId { get; set; }
+    public Cidade Cidade { get; set; }
+
     public ICollection<Fornecedor>? Fornecedores { get; set; }
 }

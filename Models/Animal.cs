@@ -1,10 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgroLeite.Models;
 
 [Table("Animais")]
 public class Animal
 {
+    public Animal()
+    {
+        ProducoesDiaria = new Collection<ProducaoDiaria>();
+    }
+
     [Column("animalId")]
     public int AnimalId { get; set; }
 
@@ -28,4 +34,6 @@ public class Animal
 
     public int VendaAnimalId { get; set; }
     public VendaAnimal? VendaAnimal { get; set; }
+
+    public ICollection<ProducaoDiaria>? ProducoesDiaria { get; set; }
 }

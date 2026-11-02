@@ -11,6 +11,7 @@ public class Fornecedor
         VendasAnimal = new Collection<VendaAnimal>();
         VendasProducao = new Collection<VendaProducao>();
         ContasPagar = new Collection<ContasPagar>();
+        EstoquesInsumo = new Collection<EstoqueInsumo>();
     }
 
     [Column("fornecedorId")]
@@ -43,4 +44,5 @@ public class Fornecedor
     public ICollection<VendaAnimal>? VendasAnimal { get; set; }
     public ICollection<VendaProducao>? VendasProducao { get; set; }
     public ICollection<ContasPagar>? ContasPagar { get; set; }
+    public ICollection<EstoqueInsumo>? EstoquesInsumo { get; set; }
 }
